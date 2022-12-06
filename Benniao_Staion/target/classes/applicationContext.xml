@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--spring约束描述文件-->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -11,13 +10,14 @@
             http://www.springframework.org/schema/context/spring-context-3.1.xsd
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx.xsd">
+
     <!--组件扫描器，用于扫描service所在包路径下的service对象，将其添加到spring容器中管理-->
     <context:component-scan base-package="com.benniao.service"/>
 
     <!--读取mysql连接池的配置文件jdbc.properties-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <!--    阿里巴巴吧的druid数据库连接池性能比较好，一般使用druid连接池作为数据源-->
+    <!--    阿里巴巴的druid数据库连接池性能比较好，一般使用druid连接池作为数据源-->
     <bean id="dataBase" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driverClass}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -27,8 +27,8 @@
     <!--用于整合spring和mybatis-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataBase"/>
-        <!-- 配置Mybati的核心配置文件 -->
-        <property name="configLocation" value="classpath:Mybatis.xml" />
+        <!-- 配置Mybatis的核心配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
     <!--用于扫描dao层对象，将dao层对象注入到spring容器中-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
