@@ -33,7 +33,7 @@
     <!--用于扫描dao层对象，将dao层对象注入到spring容器中-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.benniao.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!--事务注解驱动开启-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

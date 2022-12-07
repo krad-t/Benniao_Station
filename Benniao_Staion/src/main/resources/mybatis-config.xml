@@ -6,6 +6,7 @@
 
 <configuration>
     <properties resource="jdbc.properties"/>
+
     <settings>
         <!-- 控制日志输出 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
@@ -15,8 +16,6 @@
         <!--默认别名为：javabean 的首字母小写的非限定类名来作为它的别名-->
         <package name="com.ssm.demo.entity" />
     </typeAliases>
-
-
 
     <environments default="mysql">
         <environment id="mysql">
@@ -29,6 +28,7 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
         <!-- name 是映射文件所在的包名 -->
         <package name="com.benniao.dao"/>

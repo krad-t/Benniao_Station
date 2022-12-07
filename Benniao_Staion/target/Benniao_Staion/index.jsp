@@ -1,7 +1,7 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <form action="login" method="post">
     用户名：${usernameError}<br/>

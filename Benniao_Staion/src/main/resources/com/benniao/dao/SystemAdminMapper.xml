@@ -4,11 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--mapper为根元素，namespace指定了命名空间-->
 <mapper namespace="com.benniao.dao.SystemAdminMapper">
-    <select id="findByUsername1" parameterType="String" resultType="com.benniao.entity.SystemAdmin">
+    <select id="findByUsername" parameterType="String" resultType="com.benniao.entity.SystemAdmin">
         select *
         from common_user
         where username = #{username}
     </select>
 
-
+    <select id="selectAll" parameterType="String" resultType="com.benniao.entity.CommonUser">
+        select *
+        from common_user
+    </select>
 </mapper>

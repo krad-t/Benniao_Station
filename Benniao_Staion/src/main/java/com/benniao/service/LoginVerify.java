@@ -1,9 +1,9 @@
 package com.benniao.service;
 
-import com.benniao.dto.Account;
+import com.benniao.dto.AccountLoginStatus;
 
 import java.io.IOException;
 
 public interface LoginVerify {
-    Account verify(String un, String pw, Integer ut) throws IOException;
+    AccountLoginStatus verify(String un, String pw, Integer ut) throws IOException;
 }

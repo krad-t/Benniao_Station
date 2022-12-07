@@ -40,7 +40,19 @@
 
   <dependencies>
 
+    <!--二维码-->
+      <dependency>
+          <groupId>cn.hutool</groupId>
+          <artifactId>hutool-all</artifactId>
+          <version>5.0.7</version>
+      </dependency>
 
+      <dependency>
+          <groupId>com.google.zxing</groupId>
+          <artifactId>core</artifactId>
+          <version>3.3.3</version>
+      </dependency>
+    <!--二维码-->
 
       <!--单元测试-->
       <dependency>
@@ -153,6 +165,16 @@
 
   <build>
     <finalName>Benniao_Staion</finalName>
+<!--      <plugins>-->
+<!--          <plugin>-->
+<!--              <groupId>org.apache.maven.plugins</groupId>-->
+<!--              <artifactId>maven-compiler-plugin</artifactId>-->
+<!--              <configuration>-->
+<!--                  <source>8</source>-->
+<!--                  <target>8</target>-->
+<!--              </configuration>-->
+<!--          </plugin>-->
+<!--      </plugins>-->
       <resources>
           <!--maven构建项目时默认不会移动src/main/java下的文件，需要手动指定需要移动的配置文件-->
           <resource>
