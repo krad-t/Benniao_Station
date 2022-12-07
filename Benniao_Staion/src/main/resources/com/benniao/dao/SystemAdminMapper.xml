@@ -6,7 +6,7 @@
 <mapper namespace="com.benniao.dao.SystemAdminMapper">
     <select id="findByUsername" parameterType="String" resultType="com.benniao.entity.SystemAdmin">
         select *
-        from common_user
+        from admin
         where username = #{username}
     </select>
 

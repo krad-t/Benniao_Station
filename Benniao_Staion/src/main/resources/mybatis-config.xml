@@ -32,8 +32,7 @@
     <mappers>
         <!-- name 是映射文件所在的包名 -->
         <package name="com.benniao.dao"/>
-<!--        <mapper resource="com/benniao/dao/CommonUserMapper.xml"/>-->
-<!--        <mapper resource="com/benniao/dao/SystemAdminMapper.xml"/>-->
+
     </mappers>
 
 </configuration>

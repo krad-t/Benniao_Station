@@ -17,8 +17,8 @@
 
 
 <%--展示二维码--%>
-    <a href="${pageContext.request.contextPath}/showQRCode">
-        <img id="img" src = "${pageContext.request.contextPath}/showQRCode">
+    <a href="${pageContext.request.contextPath}/showAccountQRCode">
+        <img id="img" src = "${pageContext.request.contextPath}/showAccountQRCode">
     </a>
 
 

@@ -1,16 +1,27 @@
 package com.benniao.entity;
 
 public class CommonUser {
-    private int id;
+    private String uid;
     private String username;
     private String password;
+    private String phone;
 
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "CommonUser{" +
+                "uid='" + uid + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getUsername() {
@@ -29,12 +40,11 @@ public class CommonUser {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "CommonUser{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

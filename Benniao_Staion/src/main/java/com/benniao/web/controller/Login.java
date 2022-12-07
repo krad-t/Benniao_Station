@@ -1,6 +1,6 @@
 package com.benniao.web.controller;
 
-import com.benniao.dto.AccountLoginStatus;
+import com.benniao.dto.Account;
 import com.benniao.entity.CommonUser;
 import com.benniao.entity.SystemAdmin;
 import com.benniao.service.impl.LoginVerifyImpl;
@@ -19,7 +19,7 @@ public class Login {
     @Autowired
     LoginVerifyImpl lv;
 
-    public AccountLoginStatus ac;
+    public Account ac;
     /**
      * 初始页面
      *

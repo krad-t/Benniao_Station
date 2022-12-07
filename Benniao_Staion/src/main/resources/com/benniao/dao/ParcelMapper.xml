@@ -4,10 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--mapper为根元素，namespace指定了命名空间-->
 <mapper namespace="com.benniao.dao.ParcelMapper">
-    <select id="selectAll" parameterType="String" resultType="com.benniao.entity.Parcel">
+    <select id="selectByUsername" parameterType="String" resultType="com.benniao.entity.Parcel">
         select *
-        from common_user
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{username}
     </select>
+
+    <update id="updateStatus" parameterType="int">
+        update parcel
+        set status = #{newStatusCode}
+        where username = ${username}
+    </update>
 
 
 </mapper>

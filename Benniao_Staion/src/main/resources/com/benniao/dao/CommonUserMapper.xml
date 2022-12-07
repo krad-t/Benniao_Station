@@ -6,7 +6,7 @@
 <mapper namespace="com.benniao.dao.CommonUserMapper">
     <select id="findByUsername" parameterType="String" resultType="com.benniao.entity.CommonUser">
         select *
-        from common_user
+        from user
         where username = #{username}
     </select>
 

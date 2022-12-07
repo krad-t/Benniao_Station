@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Base64;
+
 
 @Service
 public class GenerateQRCodeImpl implements com.benniao.service.GenerateQRCode {

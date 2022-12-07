@@ -2,7 +2,7 @@ package com.benniao.service.impl;
 
 import com.benniao.dao.CommonUserMapper;
 import com.benniao.dao.SystemAdminMapper;
-import com.benniao.dto.AccountLoginStatus;
+import com.benniao.dto.Account;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,8 +18,8 @@ import java.util.Objects;
 @Service
 public class LoginVerifyImpl implements com.benniao.service.LoginVerify {
     @Override
-    public AccountLoginStatus verify(String un, String pw, Integer ut) throws IOException {
-        AccountLoginStatus accountLoginStatus = new AccountLoginStatus<>();
+    public Account verify(String un, String pw, Integer ut) throws IOException {
+        Account account = new Account<>();
         String res = "mybatis-config.xml";
         InputStream in = Resources.getResourceAsStream(res);
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
@@ -33,14 +33,14 @@ public class LoginVerifyImpl implements com.benniao.service.LoginVerify {
                 SystemAdmin sa  = systemAdminMapper.findByUsername(un);
                 if (sa == null) {
                     System.out.println("账户不存在");
-                    accountLoginStatus.loginStatus = 1;
+                    account.loginStatus = 1;
                 } else {
                     if (!Objects.equals(sa.getPassword(), pw)) {
                         System.out.println("密码不存在");
-                        accountLoginStatus.loginStatus = 2;
+                        account.loginStatus = 2;
                     } else {
-                        accountLoginStatus.loginStatus = 0;
-                        accountLoginStatus.user = sa;
+                        account.loginStatus = 0;
+                        account.user = sa;
                     }
                 }
                 break;
@@ -48,19 +48,19 @@ public class LoginVerifyImpl implements com.benniao.service.LoginVerify {
                 CommonUser cu  = commonUserMapper.findByUsername(un);
                 if (cu == null) {
                     System.out.println("账户不存在");
-                    accountLoginStatus.loginStatus = 1;
+                    account.loginStatus = 1;
                 } else {
                     if (!Objects.equals(cu.getPassword(), pw)) {
                         System.out.println("密码不存在");
-                        accountLoginStatus.loginStatus = 2;
+                        account.loginStatus = 2;
                     } else {
-                        accountLoginStatus.loginStatus = 0;
-                        accountLoginStatus.user = cu;
+                        account.loginStatus = 0;
+                        account.user = cu;
                     }
                 }
                 break;
         }
-        return accountLoginStatus;
+        return account;
     }
 
 
