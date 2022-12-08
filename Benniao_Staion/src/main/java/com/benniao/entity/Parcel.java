@@ -13,6 +13,21 @@ public class Parcel {
     private int status;
     private String admin_phone;
 
+    public Parcel() {
+    }
+
+    public Parcel(String eid, String username, String user_phone, String company, String code, Date int_time, Date out_time, int status, String admin_phone) {
+        this.eid = eid;
+        this.username = username;
+        this.user_phone = user_phone;
+        this.company = company;
+        this.code = code;
+        this.int_time = int_time;
+        this.out_time = out_time;
+        this.status = status;
+        this.admin_phone = admin_phone;
+    }
+
     public String getEid() {
         return eid;
     }

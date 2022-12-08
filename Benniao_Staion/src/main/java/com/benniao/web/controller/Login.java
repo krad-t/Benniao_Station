@@ -3,21 +3,24 @@ package com.benniao.web.controller;
 import com.benniao.dto.Account;
 import com.benniao.entity.CommonUser;
 import com.benniao.entity.SystemAdmin;
-import com.benniao.service.impl.LoginVerifyImpl;
+import com.benniao.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
+@RequestMapping(value = "/")
 public class Login {
-    @Autowired
-    LoginVerifyImpl lv;
+    @Resource(name = "LoginVerifyImpl")
+    private LoginVerify lv;
 
     public Account ac;
     /**
@@ -25,7 +28,7 @@ public class Login {
      *
      * @return index页面
      */
-    @RequestMapping("")
+    @RequestMapping()
     public ModelAndView init() {
         return new ModelAndView("../../index");
     }
@@ -38,7 +41,7 @@ public class Login {
      * @param ut 请求参数
      * @return
      */
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView loginJudge(@RequestParam(value = "username")
                                            String un,
                                    @RequestParam(value = "password")
@@ -77,16 +80,19 @@ public class Login {
                     session.setAttribute("account_type",ac_type);
                     break;
                 case 1:
-                    mv.addObject("usernameError", "账户不存在");
+                    mv.addObject("usernameError", "用户不存在");
                     break;
                 case 2:
                     mv.addObject("passwordError", "密码错误");
+                    mv.addObject("lastInput", un);
                     break;
             }
         }
-
         return mv;
-
+    }
+    @RequestMapping("/123")
+    public String homePageInit(){
+        return "redirect:/userHome/showAllParcel";
     }
 
 }

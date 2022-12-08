@@ -6,10 +6,37 @@
 <mapper namespace="com.benniao.dao.ParcelMapper">
     <select id="selectByUsername" parameterType="String" resultType="com.benniao.entity.Parcel">
         select *
-        from user join parcel p on user.phone = p.user_phone
+        from user
+                 join parcel p on user.phone = p.user_phone
         where p.username = #{username}
+        order by status
     </select>
 
+    <select id="searchByCode" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{0} and p.code like concat('%', #{1},'%')
+    </select>
+    <select id="searchByInt_time" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{0} and p.int_time like concat('%', #{1},'%')
+    </select>
+    <select id="searchByAdmin_phone" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{0} and p.admin_phone like concat('%', #{1},'%')
+    </select>
+    <select id="searchByStatus" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{0} and p.status like concat('%', #{1},'%')
+    </select>
+    <select id="searchByCompany" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user join parcel p on user.phone = p.user_phone
+        where p.username = #{0} and p.company like concat('%', #{1},'%')
+    </select>
     <update id="updateStatus" parameterType="int">
         update parcel
         set status = #{newStatusCode}

@@ -32,7 +32,6 @@
     <mappers>
         <!-- name 是映射文件所在的包名 -->
         <package name="com.benniao.dao"/>
-
     </mappers>
 
 </configuration>

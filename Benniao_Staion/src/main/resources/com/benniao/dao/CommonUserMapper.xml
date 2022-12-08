@@ -9,7 +9,11 @@
         from user
         where username = #{username}
     </select>
-
+    <update id="updateUserInfo" parameterType="String">
+        update user
+        set username = #{1},password = #{2},phone = #{3}
+        where uid = #{0}
+    </update>
 
 
 

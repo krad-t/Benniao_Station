@@ -6,6 +6,7 @@ import com.benniao.entity.CommonUser;
 import com.benniao.entity.Parcel;
 import com.benniao.entity.SystemAdmin;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-@Service
+@Service(value = "GenerateQRCodeImpl")
 public class GenerateQRCodeImpl implements com.benniao.service.GenerateQRCode {
 
     @Override
@@ -29,7 +30,7 @@ public class GenerateQRCodeImpl implements com.benniao.service.GenerateQRCode {
     }
 
     @Override
-    public void generateParcelCode(Parcel parcel, HttpServletResponse response) throws IOException {
+    public void generateParcelCode(String parcel, HttpServletResponse response) throws IOException {
         String content = parcel.toString();
         this.baseGenerateQRCode(content,response);
     }

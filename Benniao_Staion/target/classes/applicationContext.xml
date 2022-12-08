@@ -11,7 +11,7 @@
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--组件扫描器，用于扫描service所在包路径下的service对象，将其添加到spring容器中管理-->
+    <!--组件扫描器，用于扫描service所在包路径下的impl对象，将其添加到spring容器中管理-->
     <context:component-scan base-package="com.benniao.service"/>
 
     <!--读取mysql连接池的配置文件jdbc.properties-->
@@ -24,16 +24,17 @@
         <property name="name" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
-    <!--用于整合spring和mybatis-->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataBase"/>
-        <!-- 配置Mybatis的核心配置文件 -->
+    <!--用于整合spring和mybatis,配置了一个SqlSessionFactoryBean,可以直接从IoC容器获取SqlSessionFactory-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--配置Mybatis的核心配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <!--配置数据源-->
+        <property name="dataSource" ref="dataBase"/>
     </bean>
     <!--用于扫描dao层对象，将dao层对象注入到spring容器中-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.benniao.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
     </bean>
     <!--事务注解驱动开启-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

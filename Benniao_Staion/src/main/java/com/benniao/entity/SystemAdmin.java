@@ -6,6 +6,16 @@ public class SystemAdmin {
     private String password;
     private String phone;
 
+    public SystemAdmin() {
+    }
+
+    public SystemAdmin(String uid, String username, String password, String phone) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "SystemAdmin{" +

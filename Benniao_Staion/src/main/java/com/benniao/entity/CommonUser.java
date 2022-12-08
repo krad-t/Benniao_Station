@@ -6,6 +6,16 @@ public class CommonUser {
     private String password;
     private String phone;
 
+    public CommonUser(String uid, String username, String password, String phone) {
+        this.uid = uid;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+    }
+
+    public CommonUser() {
+    }
+
     @Override
     public String toString() {
         return "CommonUser{" +

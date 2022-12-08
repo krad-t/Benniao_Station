@@ -7,16 +7,28 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.benniao.entity.*;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
-@Service
+@Service(value = "LoginVerifyImpl")
 public class LoginVerifyImpl implements com.benniao.service.LoginVerify {
+    @Autowired
+    private SystemAdminMapper systemAdminMapper;
+
+    @Autowired
+    private SqlSessionFactory factory;
+
+    @Autowired
+    private CommonUserMapper commonUserMapper;
+
     @Override
     public Account verify(String un, String pw, Integer ut) throws IOException {
         Account account = new Account<>();
