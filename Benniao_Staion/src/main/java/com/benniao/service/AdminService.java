@@ -21,4 +21,7 @@ public interface AdminService {
      * @throws IOException
      */
     int addParcel(String user_phone,String code, String company, SystemAdmin admin) throws IOException;
+
+
+    void updateAdminInfo(String aid, String username, String password, String phone) throws IOException;
 }

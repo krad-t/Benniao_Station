@@ -31,7 +31,7 @@ public class UserHome {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout( HttpSession session){
+    public String logout(HttpSession session){
         //销毁session
         session.invalidate();
         return "safe_logout";
@@ -45,6 +45,7 @@ public class UserHome {
         mv.addObject("parcelList",list);
         return mv;
     }
+
     @RequestMapping(value = "/showParcelQRCode",method = RequestMethod.POST)
     public String redirectToShowParcelQRCode(){
         return "redirect:/showParcelQRCode";
@@ -57,6 +58,7 @@ public class UserHome {
         mv.addObject("parcelList",list);
         return mv;
     }
+
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public ModelAndView userInfo(HttpSession session) throws IOException {
         ModelAndView mv = new ModelAndView("user_info");
@@ -67,6 +69,7 @@ public class UserHome {
         mv.addObject("phone",user.getPhone());
         return mv;
     }
+
     @RequestMapping(value = "/updateUerInfo",method = RequestMethod.POST)
     public ModelAndView updateUerInfo(String uid,String username,String password,String phone) throws IOException {
         ModelAndView mv = new ModelAndView("user_info");
@@ -82,5 +85,7 @@ public class UserHome {
         return mv;
 
     }
+
+
 
 }

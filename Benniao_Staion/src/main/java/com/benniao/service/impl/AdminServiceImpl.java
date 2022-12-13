@@ -2,6 +2,7 @@ package com.benniao.service.impl;
 
 import com.benniao.dao.CommonUserMapper;
 import com.benniao.dao.ParcelMapper;
+import com.benniao.dao.SystemAdminMapper;
 import com.benniao.entity.CommonUser;
 import com.benniao.entity.Parcel;
 import com.benniao.entity.SystemAdmin;
@@ -97,4 +98,15 @@ public class AdminServiceImpl implements AdminService {
         return 0;
 
     }
+
+    @Override
+    public void updateAdminInfo(String aid, String username, String password, String phone) throws IOException {
+        String res = "mybatis-config.xml";
+        InputStream in = Resources.getResourceAsStream(res);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        SqlSession sqlSession = factory.openSession(true);
+        SystemAdminMapper systemAdminMapper = sqlSession.getMapper(SystemAdminMapper.class);
+        systemAdminMapper.updateAdminInfo(aid, username, password, phone);
+    }
+
 }

@@ -1,11 +1,13 @@
 package com.benniao.web.controller;
 
+import com.benniao.entity.CommonUser;
 import com.benniao.entity.Parcel;
 import com.benniao.entity.SystemAdmin;
 import com.benniao.service.AdminService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
@@ -68,5 +70,27 @@ public class AdminHome {
             ) throws IOException {
         adminService.updateParcelInfo(eid,statusCode,code ,int_time, out_time, company);
         return this.showManageParcel(session);
+    }
+
+    @RequestMapping(value = "/updateAdminInfo")
+    public ModelAndView updateAdminInfo(String aid,
+                                        String username,
+                                        String password,
+                                        String phone,
+                                        HttpSession session
+                                        ) throws IOException {
+        ModelAndView mv = new ModelAndView("admin_info");
+        adminService.updateAdminInfo(aid,username,password,phone);
+        return mv;
+    }
+    @RequestMapping(value = "adminInfo")
+    public ModelAndView adminInfo(HttpSession session){
+        ModelAndView mv = new ModelAndView("admin_info");
+        SystemAdmin admin = (SystemAdmin) session.getAttribute("account");
+        mv.addObject("uid",admin.getUid());
+        mv.addObject("username",admin.getUsername());
+        mv.addObject("password",admin.getPassword());
+        mv.addObject("phone",admin.getPhone());
+        return mv;
     }
 }

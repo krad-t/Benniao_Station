@@ -10,8 +10,9 @@
         where username = #{username}
     </select>
 
-    <select id="selectAll" parameterType="String" resultType="com.benniao.entity.CommonUser">
-        select *
-        from user
-    </select>
+    <update id="updateAdminInfo">
+        update admin
+        set username=#{1},password=#{2},phone=#{3}
+        where aid=#{0}
+    </update>
 </mapper>
