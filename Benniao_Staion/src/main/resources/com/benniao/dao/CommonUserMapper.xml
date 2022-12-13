@@ -16,8 +16,8 @@
     </update>
 
     <insert id="insertUserInfo" parameterType="String">
-            insert into user(uid,username,password,phone)
-             values(#{uid},#{username},#{password},#{phone})
+            insert into user(uid, username, password, phone)
+             values(#{0},#{1},#{2},#{3})
     </insert>
 
 

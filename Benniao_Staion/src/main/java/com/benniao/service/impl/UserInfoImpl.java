@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Service
+@Service(value = "UserInfoImpl")
 public class UserInfoImpl implements UserInfo {
     public void updateUserInfo(String uid, String username, String password, String phone) throws IOException {
         String res = "mybatis-config.xml";
@@ -25,12 +25,19 @@ public class UserInfoImpl implements UserInfo {
         commonUserMapper.updateUserInfo(uid,username,password,phone);
     }
 
-    public void insertUserInfo(String uid, String username, String password, String phone) throws IOException {
+    public int insertUserInfo(String uid, String username, String password, String phone) throws IOException {
         String res = "mybatis-config.xml";
         InputStream in = Resources.getResourceAsStream(res);
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
-        SqlSession sqlSession = factory.openSession();
+        SqlSession sqlSession = factory.openSession(true);
         CommonUserMapper commonUserMapper = sqlSession.getMapper(CommonUserMapper.class);
-        commonUserMapper.insertUserInfo(uid,username,password,phone);
+        //判断重复
+        CommonUser commonUser = commonUserMapper.findByUsername(username);
+        if(commonUser!=null){
+            return 1;
+        }else{
+            System.out.println(commonUserMapper.insertUserInfo(uid,username,password,phone));
+        }
+        return 0;
     }
 }

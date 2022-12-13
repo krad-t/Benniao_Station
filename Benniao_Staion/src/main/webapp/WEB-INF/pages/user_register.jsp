@@ -9,13 +9,19 @@
 <html>
 <head>
     <title>用户注册</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../lib/jquery-3.6.1.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../lib/bootstrapvalidator-master/src/css/bootstrapValidator.css" rel="external nofollow" />
+    <script src="../../lib/bootstrapvalidator-master/src/js/bootstrapValidator.js"></script>
 </head>
 <body>
 <%--注册框 --%>
 <div>
     <h1 class="text-center">用户注册</h1>
-    <form action="register_success" method="post">
+    <form action="register" method="post">
        <table>
            <label>用户名:</label>
             <input type="text" name="username">

@@ -65,7 +65,7 @@
                 </div>
                 <input type="submit" class="btn btn-success btn-block" value="登录">
                 <input type="reset"  class="btn btn-secondary btn-block" value="重置">
-                <a href="user_register" style="color: rgba(255, 0, 0, 0.7);"><p class="text-center text-">没有账号?点此注册</p></a>
+                <a href="/userRegister" style="color: rgba(255, 0, 0, 0.7);"><p class="text-center text-">没有账号?点此注册</p></a>
             </form>
         </div>
     </div>
