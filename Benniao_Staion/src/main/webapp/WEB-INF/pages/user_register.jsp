@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: zhong
-  Date: 2022/12/10
-  Time: 23:42
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,30 +12,62 @@
 </head>
 <body>
 <%--注册框 --%>
-<div>
-    <h1 class="text-center">用户注册</h1>
-    <form action="register" method="post">
-       <table>
-           <label>用户名:</label>
-            <input type="text" name="username">
-            <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2 well">
+            <!-- 使用预定义类 .text-center 让文本在 h1 块中居中显示 -->
+            <h1 class="text-center">用户注册</h1>
+            <form class="form-group" action="register" method="post">
+                <div class="input-group ${empty registerFailed?"":"has-error"}">
+                    <span class="input-group-addon "><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Username"
+                           data-bv-notempty
+                           required
+                           data-bv-notempty-message="123"
+                           pattern="[a-zA-Z0-9\x{4e00}-\x{9fa5}]+"
+                           name="username"
+                           value=""
+                    >
 
-           <label>密码:</label>
-             <input type="text"name="password">
-             <br>
+                    <% if(request.getAttribute("registerFailed")!=null){ %>
+                    <i style="color:rgba(255, 0, 0, 0.8)" class="input-group-addon glyphicon glyphicon-remove">${registerFailed}</i>
+                    <% }else{ %>
 
-           <label>身份证号:</label>
-             <input type="text" name="uid">
-             <br>
+                    <%}%>
 
-           <label>手机号:</label>
-             <input type="text" name="phone">
-             <br>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Password"
+                           data-bv-notempty
+                           required
+                           name="password"
+                    >
 
-           <input type="submit" class="btn btn-success btn-block" value="登录">
-           <input type="reset"  class="btn btn-secondary btn-block" value="重置">
-       </table>
-    </form>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-flash"></i></span>
+                    <input type="uid" class="form-control" placeholder="uid"
+                           data-bv-notempty
+                           required
+                           name="uid"
+                    >
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input type="phone" class="form-control" placeholder="phone"
+                           data-bv-notempty
+                           required
+                           pattern="[0-9]{11}"
+                           name="phone"
+                    >
+
+                </div>
+                <input type="submit" class="btn btn-success btn-block" value="注册">
+                <input type="reset"  class="btn btn-secondary btn-block" value="重置">
+            </form>
+        </div>
+    </div>
 </div>
 
 </body>

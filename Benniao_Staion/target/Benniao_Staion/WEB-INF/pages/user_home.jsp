@@ -7,40 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--    欢迎你,<div style="color: blueviolet">${username}</div> :--%>
-<%--    我的快递:--%>
-
-
-
-
-<%--    <a href="${pageContext.request.contextPath}/showAccountQRCode">--%>
-<%--        <img id="img" src = "${pageContext.request.contextPath}/showAccountQRCode">--%>
-<%--    </a>--%>
-<%--    <c:foreach var = "parcel" items = "${parcelList}" >--%>
-<%--        ${parcel.}--%>
-<%--    </c:foreach>--%>
-
-<%--&lt;%&ndash;<% } %>&ndash;%&gt;--%>
-<%--</body>--%>
-
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>用户登录</title>
-    <script src="../../lib/jquery-3.6.1.js" type="text/javascript"></script>
+    <title>${username}的主页</title>
 
+    <%--引入前端框架--%>
+    <script src="../../lib/jquery-3.6.1.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="../../lib/bootstrapvalidator-master/src/css/bootstrapValidator.css" rel="external nofollow" />
     <script src="../../lib/bootstrapvalidator-master/src/js/bootstrapValidator.js"></script>
 
@@ -92,10 +68,10 @@
     <div class="row">
         <div class="tab-content">
             <div class="tab-pane fade in active" id="myParcel" >
-                <iframe width="100%" height="700px" src="userHome/showAllParcel" ></iframe>
+                <iframe width="100%" height="600px" src="userHome/showAllParcel" ></iframe>
             </div>
             <div class="tab-pane fade" id="replace">
-                <iframe width="100%" height="700px" src="userHome/userInfo" ></iframe>
+                <iframe width="100%" height="600px" src="userHome/userInfo" ></iframe>
             </div>
 
         </div>

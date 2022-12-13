@@ -38,19 +38,19 @@ public class UserHome {
         mv.addObject("parcelList",list);
         return mv;
     }
-    @RequestMapping(value = "showParcelQRCode",method = RequestMethod.POST)
+    @RequestMapping(value = "/showParcelQRCode",method = RequestMethod.POST)
     public String redirectToShowParcelQRCode(){
         return "redirect:/showParcelQRCode";
     }
 
-    @RequestMapping(value = "search",method = RequestMethod.POST)
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
     public ModelAndView search(String type,String content) throws IOException {
         ModelAndView mv = new ModelAndView("parcel_list");
         List<Parcel> list = showUserParcel.searchMyParcel(type,content);
         mv.addObject("parcelList",list);
         return mv;
     }
-    @RequestMapping(value = "userInfo",method = RequestMethod.GET)
+    @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public ModelAndView userInfo(HttpSession session) throws IOException {
         ModelAndView mv = new ModelAndView("user_info");
         CommonUser user = (CommonUser) session.getAttribute("account");
@@ -60,7 +60,7 @@ public class UserHome {
         mv.addObject("phone",user.getPhone());
         return mv;
     }
-    @RequestMapping(value = "updateUerInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateUerInfo",method = RequestMethod.POST)
     public ModelAndView updateUerInfo(String uid,String username,String password,String phone) throws IOException {
         ModelAndView mv = new ModelAndView("user_info");
         userInfo.updateUserInfo(uid, username, password, phone);
@@ -68,7 +68,7 @@ public class UserHome {
 
     }
 
-    @RequestMapping(value = "insertUerInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/insertUerInfo",method = RequestMethod.POST)
     public ModelAndView insertUerInfo(String uid,String username,String password,String phone) throws IOException {
         ModelAndView mv = new ModelAndView("user_register");
         userInfo.insertUserInfo(uid, username, password, phone);

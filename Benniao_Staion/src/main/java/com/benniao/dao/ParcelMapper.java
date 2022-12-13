@@ -12,5 +12,12 @@ public interface ParcelMapper {
     List<Parcel> searchByStatus(String username,String content);
     List<Parcel> searchByCompany(String username,String content);
 
-    Parcel updateStatus(int newStatusCode,String username);
+    int _updateByeid(String eid, String status, String code, String int_time, String out_time, String company);
+    List<Parcel> _selectByAdminname(String adminname);
+    List<Parcel> _searchByCode(String adminname,String code);
+    List<Parcel> _searchByInt_time(String adminname,String int_time);
+    List<Parcel> _searchByOut_time(String adminname,String out_time);
+    List<Parcel> _searchByCompany(String adminname,String content);
+    List<Parcel> _searchByUser_phone(String adminname,String user_phone);
+    List<Parcel> _searchByStatus(String adminname,String content);
 }

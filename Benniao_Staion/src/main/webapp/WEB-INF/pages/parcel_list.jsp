@@ -82,8 +82,6 @@
                 <th>管理员电话</th>
                 <th>快递公司</th>
                 <th>状态</th>
-<%--                <th>操作</th>--%>
-
             </tr>
             </thead>
 
@@ -139,6 +137,7 @@
    //     a.find("")
    // })
    // $(document).ready(function(){
+   /*模态框回填信息*/
        $('.a-select').click(function (event){
            event.defaultPrevented
            var str = $(this).data("type")

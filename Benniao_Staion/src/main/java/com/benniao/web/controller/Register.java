@@ -38,7 +38,7 @@ public class Register {
         if(registerCode==0){
             mv.setViewName("register_success");
         }else if(registerCode==1){
-            mv.addObject("registerFailed",1);
+            mv.addObject("registerFailed","用户名冲突");
             mv.setViewName("user_register");
         }
        return mv;
