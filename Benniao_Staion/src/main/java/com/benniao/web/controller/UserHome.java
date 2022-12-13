@@ -30,9 +30,16 @@ public class UserHome {
         return mv;
     }
 
+    @RequestMapping(value = "/logout")
+    public String logout( HttpSession session){
+        //销毁session
+        session.invalidate();
+        return "safe_logout";
+    }
+
     @RequestMapping(value = "/showAllParcel")
     public ModelAndView showAllParcel(HttpSession session) throws IOException {
-        ModelAndView mv = new ModelAndView("parcel_list");
+        ModelAndView mv = new ModelAndView("user_parcel_list");
         CommonUser user = (CommonUser) session.getAttribute("account");
         List<Parcel> list = showUserParcel.showMyParcel(user.getUsername());
         mv.addObject("parcelList",list);
@@ -45,7 +52,7 @@ public class UserHome {
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public ModelAndView search(String type,String content) throws IOException {
-        ModelAndView mv = new ModelAndView("parcel_list");
+        ModelAndView mv = new ModelAndView("user_parcel_list");
         List<Parcel> list = showUserParcel.searchMyParcel(type,content);
         mv.addObject("parcelList",list);
         return mv;

@@ -1,6 +1,9 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class debugIoC {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
@@ -13,5 +16,11 @@ public class debugIoC {
             System.out.println("对象内容是：" + context.getBean(beanName).toString());
             System.out.println("=======================");
         }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.util.Date date = new java.util.Date();
+        String currentTime = dateFormat.format(date);
+        System.out.println(currentTime);
+        Date date1 = new Date(System.currentTimeMillis());
+        System.out.println(date1);
     }
 }

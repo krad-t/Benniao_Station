@@ -2,11 +2,13 @@ package com.benniao.dao;
 
 import com.benniao.entity.Parcel;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface ParcelMapper {
     List<Parcel> selectByUsername(String username);
     List<Parcel> searchByCode(String username,String code);
+    Parcel searchByCodeAccurate(String username,String code);
     List<Parcel> searchByInt_time(String username,String int_time);
     List<Parcel> searchByAdmin_phone(String username,String admin_phone);
     List<Parcel> searchByStatus(String username,String content);
@@ -20,4 +22,14 @@ public interface ParcelMapper {
     List<Parcel> _searchByCompany(String adminname,String content);
     List<Parcel> _searchByUser_phone(String adminname,String user_phone);
     List<Parcel> _searchByStatus(String adminname,String content);
+    int _insertParcel(String eid,
+        String username,
+        String user_phone,
+        String company,
+        String code,
+        Date int_time,
+        Date out_time,
+        int status,
+        String admin_phone);
+
 }

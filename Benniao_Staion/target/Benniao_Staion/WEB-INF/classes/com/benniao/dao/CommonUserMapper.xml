@@ -9,6 +9,11 @@
         from user
         where username = #{username}
     </select>
+    <select id="findByUserphone" parameterType="String" resultType="com.benniao.entity.CommonUser">
+        select *
+        from user
+        where phone = #{up}
+    </select>
     <update id="updateUserInfo" parameterType="String">
         update user
         set username = #{1},password = #{2},phone = #{3}

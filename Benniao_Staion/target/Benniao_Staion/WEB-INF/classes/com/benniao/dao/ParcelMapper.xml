@@ -18,6 +18,13 @@
         where p.username = #{0}
           and p.code like concat('%', #{1}, '%')
     </select>
+    <select id="searchByCodeAccurate" parameterType="String" resultType="com.benniao.entity.Parcel">
+        select *
+        from user
+                 join parcel p on user.phone = p.user_phone
+        where p.username = #{0}
+          and p.code = #{1}
+    </select>
     <select id="searchByInt_time" parameterType="String" resultType="com.benniao.entity.Parcel">
         select *
         from user
@@ -100,6 +107,10 @@
         where admin.username = #{0}
           and p.status like concat('%', #{1}, '%')
     </select>
+    <update id="_insertParcel" >
+        insert into parcel(eid,username, user_phone, company, code, int_time, out_time, status, admin_phone)
+        values(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8})
+    </update>
 
 
 </mapper>

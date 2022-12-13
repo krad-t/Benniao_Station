@@ -53,15 +53,7 @@
                     >
                 </div>
             </div>
-            <%--                <div class="form-group">--%>
-            <%--                    <label for="repassword" class="col-sm-2 control-label">密码</label>--%>
-            <%--                    <div class="col-sm-8">--%>
-            <%--                        <input type="text" class="form-control" id="repassword" placeholder="" value="${password}"--%>
-            <%--                               data-bv-notempty--%>
-            <%--                               required--%>
-            <%--                        >--%>
-            <%--                    </div>--%>
-            <%--                </div>--%>
+
             <div class="form-group">
                 <label for="phone" class="col-sm-2 control-label">联系电话</label>
                 <div class="col-sm-8">
