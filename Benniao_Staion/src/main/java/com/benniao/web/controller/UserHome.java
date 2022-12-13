@@ -68,4 +68,12 @@ public class UserHome {
 
     }
 
+    @RequestMapping(value = "insertUerInfo",method = RequestMethod.POST)
+    public ModelAndView insertUerInfo(String uid,String username,String password,String phone) throws IOException {
+        ModelAndView mv = new ModelAndView("user_register");
+        userInfo.insertUserInfo(uid, username, password, phone);
+        return mv;
+
+    }
+
 }

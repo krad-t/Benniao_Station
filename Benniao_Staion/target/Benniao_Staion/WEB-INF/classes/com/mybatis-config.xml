@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--mybatis 约束描述文件-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <!-- 控制日志输出 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <!--默认别名为：javabean 的首字母小写的非限定类名来作为它的别名-->
+        <package name="com.ssm.demo.entity" />
+    </typeAliases>
+
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClass}" />
+                <property name="url" value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- name 是映射文件所在的包名 -->
+        <package name="com.benniao.dao"/>
+    </mappers>
+
+</configuration>

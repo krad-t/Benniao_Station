@@ -24,4 +24,13 @@ public class UserInfoImpl implements UserInfo {
         CommonUserMapper commonUserMapper = sqlSession.getMapper(CommonUserMapper.class);
         commonUserMapper.updateUserInfo(uid,username,password,phone);
     }
+
+    public void insertUserInfo(String uid, String username, String password, String phone) throws IOException {
+        String res = "mybatis-config.xml";
+        InputStream in = Resources.getResourceAsStream(res);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        SqlSession sqlSession = factory.openSession();
+        CommonUserMapper commonUserMapper = sqlSession.getMapper(CommonUserMapper.class);
+        commonUserMapper.insertUserInfo(uid,username,password,phone);
+    }
 }
